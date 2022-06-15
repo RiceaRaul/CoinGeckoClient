@@ -7,7 +7,6 @@
 ```
 npm install axios
 npm install extends-classes
-npm install node-fetch
 npm install query-string
 ```
 ```javascript
