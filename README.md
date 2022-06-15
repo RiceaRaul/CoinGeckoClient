@@ -1,7 +1,14 @@
 # CoinGecko API Client for Node.js
 
+
 ## • Quick Start Example
 
+```
+npm install axios
+npm install extends-classes
+npm install node-fetch
+npm install query-string
+```
 ```javascript
 //1. Import 
 let Geko = require("./lib/geko");
