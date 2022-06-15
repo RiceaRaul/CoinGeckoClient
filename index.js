@@ -1,13 +1,3 @@
-let Geko = require("./lib/geko");
-let geko = new Geko();
-async function test(){
-    let d = await geko.coins.markets({
-        ids:['bitcoin'],
-        vs_currency:"eur",
-        market_cap_desc:"market_cap_desc"
-    })
-    
-    console.log(d);
-}
-
-test();
+globalThis.GEKOAPPI = "https://api.coingecko.com/api/v3";
+globalThis.Utils = require('./lib/helpers/utils');
+module.exports = exports = require("./lib/geko");
