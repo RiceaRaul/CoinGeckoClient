@@ -21,4 +21,168 @@ This module provides helper constants for use in calls.
 • To do
 ## • Making Calls
 All calls using the CoinGeckoClient are asynchronous.
-• To do
+Each function receives an object as an argument.<br>
+:warning: For more information on features, check out https://www.coingecko.com/en/api/documentation
+
+## • Ping
+
+Check API server status.
+
+Usage Example:
+```javascript
+  let data = await CoinGeckoClient.ping();
+```
+<details>
+  <summary>Simple Category /simple</summary>
+<br>
+
+### Function price
+| Argument      | Type | Optional |
+| ------------- | ------------- |  ------------- |
+| ids  | array  | false|
+| vs_currencies  | array  |true|
+
+```javascript
+  let params = {
+    ids:["btc"],
+    vs_currencies:["eur"],
+  }
+  let data = await CoinGeckoClient.simple.price(params);
+```
+### Function tokenPrice
+
+| Argument      | Type | Optional |
+| ------------- | ------------- |  ------------- |
+| id  | path  | false|
+| vs_currencies  | array  |true|
+| contract_addresses  | array  |false|
+```javascript
+ let params = {
+    id:"ethereum",
+    vs_currencies:["eur"],
+    contract_addresses:["0xe41d2489571d322189246dafa5ebde1f4699f498"]
+  }
+  let data = await CoinGeckoClient.simple.price(params);
+```
+
+### Function supportedVsCurrencies
+```javascript
+  let data = await CoinGeckoClient.simple.supportedVsCurrencies();
+```
+</details>
+ 
+<details>
+  <summary>Coins cateogry /coins</summary>
+  <br>
+  
+  ### Function all
+  ```javascript
+     let data = await CoinGeckoClient.coins.all();
+  ```
+  ### Function list
+  ```javascript
+     let data = await CoinGeckoClient.coins.list();
+  ```
+  ### Function markets
+  | Argument      | Type | Optional |
+| ------------- | ------------- |  ------------- |
+| ids  | array  | false|
+| vs_currency  |  string |true|
+  ```javascript
+     let params = {
+        ids:["btc"],
+        vs_currencies:"eur"
+     }
+     let data = await CoinGeckoClient.coins.markets(params);
+  ```
+  ### Function id
+| Argument      | Type | Optional |
+| ------------- | ------------- |  ------------- |
+| id  | string  | false|
+
+  
+  ```javascript
+  let params = {
+        id:"btc",
+   }
+   let data = await CoinGeckoClient.coins.markets(params);
+  ```
+  
+  ### Function tickers
+| Argument      | Type | Optional |
+| ------------- | ------------- |  ------------- |
+| id  | string  | false|
+
+  
+  ```javascript
+  let params = {
+        id:"btc",
+   }
+   let data = await CoinGeckoClient.coins.tickers(params);
+  ```
+  
+  ### Function history
+| Argument      | Type | Optional |
+| ------------- | ------------- |  ------------- |
+| id  | string  | false|
+| date | string dd-mm-yyyy| false|
+  
+  ```javascript
+  let params = {
+        id:"btc",
+        date:"19-12-2022"
+   }
+   let data = await CoinGeckoClient.coins.date(params);
+  ```
+  
+### Function marketChart
+| Argument      | Type | Optional |
+| ------------- | ------------- |  ------------- |
+| id  | string  | false|
+| vs_currencies  | string  |true|
+| days | string | false|
+
+```javascript
+  let params = {
+    id:["btc"],
+    vs_currencies:"eur",
+    days:"1"
+  }
+  let data = await CoinGeckoClient.simple.marketChart(params);
+```
+### Function marketChartRange
+| Argument      | Type | Optional |
+| ------------- | ------------- |  ------------- |
+| id  | string  | false|
+| vs_currencies  | string  |true|
+| from | string  unix | false|
+| to | string  unix | false|
+
+```javascript
+  let params = {
+    id:["btc"],
+    vs_currencies:"eur",
+    from:"1392577232",
+    to:"1422577232"
+  }
+  let data = await CoinGeckoClient.simple.marketChartRange(params);
+```
+  
+### Function ohlc
+| Argument      | Type | Optional |
+| ------------- | ------------- |  ------------- |
+| id  | string  | false|
+| vs_currencies  | string  |true|
+| days | string | false|
+
+```javascript
+  let params = {
+    id:["btc"],
+    vs_currencies:"eur",
+    days:"1"
+  }
+  let data = await CoinGeckoClient.simple.ohlc(params);
+```
+</details>
+
+#  :warning: Working process.
